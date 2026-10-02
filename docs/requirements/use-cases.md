@@ -2181,6 +2181,82 @@ Report generating algorithm: N/A
 **Assumptions:**
 **Open Issues:**
 
+### **UC-WAR-nudge-non-submitters: The instructor nudges students with missing submissions**
+
+**UC ID and Name:** UC-WAR-nudge-non-submitters: Nudge students with missing submissions
+**Created By:**
+**Date Created:**
+**Primary Actor:** instructor
+**Secondary Actors:**
+
+**Trigger:** The instructor indicates to view students with missing submissions for a course section.
+
+**Description:** The instructor wants to identify students in her course section who have not submitted an applicable weekly activity report or peer evaluation and send a manual nudge to those students, so that students are reminded to complete their missing submissions.
+
+**Preconditions:**
+- PRE-1. The instructor is logged into the system.
+- PRE-2. The instructor is assigned to the course section (BR-section-scoped-access).
+
+**Postconditions:**
+- POST-1. The instructor has been shown the students with missing applicable submissions in her course section.
+- POST-2. The system has attempted to send a manual nudge to each student the instructor selected to nudge and has informed the instructor of any unsuccessful nudges.
+
+**Main Success Scenario:**
+1. The instructor indicates to view students with missing submissions for a course section.
+2. The system identifies the weekly activity report and peer evaluation that are applicable for the current submission period.
+3. The system determines which students in the instructor's course section do not currently have a submitted instance of each applicable artifact.
+4. The system displays the students with missing submissions and identifies each applicable artifact that each student has not submitted.
+5. The instructor selects one or more students with missing submissions to nudge.
+6. The instructor confirms that she wants to send a manual nudge to the selected students.
+7. The system sends one manual nudge to each selected student identifying all applicable artifacts that the student has not submitted.
+8. The system informs the instructor of the result of each manual nudge attempt.
+9. Use case ends.
+
+**Extensions:**
+- **3a. A student is not assigned to a team:**
+  - 3a1. The system excludes the student from the non-submitter list because the student is not eligible to submit the artifact (BR-team-assignment-required).
+  - 3a2. The scenario continues at step 3 for the remaining students.
+
+- **2a. The peer evaluation submission window is closed:**
+  - 2a1. The system does not treat the peer evaluation as an applicable artifact for manual nudging (BR-evaluation-submission-window).
+  - 2a2. The scenario continues at step 2 with any other applicable artifact.
+
+- **2b. The week is not active for peer evaluation:**
+  - 2b1. The system does not treat the peer evaluation as an applicable artifact for manual nudging (BR-active-weeks).
+  - 2b2. The system continues evaluating the weekly activity report independently.
+  - 2b3. The scenario continues at step 3.
+
+- **3b. A student previously submitted an artifact but later deleted it:**
+  - 3b1. The system determines that the student does not currently have a submitted instance of the artifact.
+  - 3b2. The system treats the student as a non-submitter for that artifact if the artifact is still applicable.
+  - 3b3. The scenario continues at step 4.
+
+- **7a. The selected student has already received a manual nudge that calendar day:**
+  - 7a1. The system does not send another manual nudge to the student (BR-nudge-frequency).
+  - 7a2. The system informs the instructor that the student has already been nudged that calendar day.
+  - 7a3. The scenario continues at step 7 for any remaining selected students.
+
+- **7b. The mail server rejects a selected student's email address:**
+  - 7b1. The system records that the manual nudge was not successfully sent to that student.
+  - 7b2. The system informs the instructor that the nudge failed for that student.
+  - 7b3. The scenario continues at step 7 for any remaining selected students.
+
+**Priority:** High
+**Frequency of Use:** Weekly, as needed by the instructor during applicable submission periods.
+**Business Rules:**
+- BR-section-scoped-access
+- BR-team-assignment-required
+- BR-active-weeks
+- BR-evaluation-submission-window
+- BR-nudge-frequency
+**Associated Information:**
+- A student is a non-submitter for an applicable artifact when the student is eligible to submit that artifact and does not currently have a submitted instance of it.
+- Weekly activity reports and peer evaluations are evaluated independently according to their respective submission requirements.
+
+**Assumptions:**
+
+**Open Issues:**
+
 ## **Peer Evaluation**
 
 ### **UC-EVA-submit-evaluation: The student submits a peer evaluation for the previous week**
