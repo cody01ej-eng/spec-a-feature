@@ -2208,7 +2208,7 @@ Report generating algorithm: N/A
 4. The system displays the students with missing submissions and identifies each applicable artifact that each student has not submitted.
 5. The instructor selects one or more students with missing submissions to nudge.
 6. The instructor confirms that she wants to send a manual nudge to the selected students.
-7. The system sends a manual nudge to each selected student identifying the applicable artifact that the student has not submitted.
+7. The system sends one manual nudge to each selected student identifying all applicable artifacts that the student has not submitted.
 8. The system informs the instructor of the result of each manual nudge attempt.
 9. Use case ends.
 
@@ -2231,9 +2231,9 @@ Report generating algorithm: N/A
   - 3b2. The system treats the student as a non-submitter for that artifact if the artifact is still applicable.
   - 3b3. The scenario continues at step 4.
 
-- **7a. The selected student has already received a manual nudge for the same missing artifact that calendar day:**
-  - 7a1. The system does not send another manual nudge for that artifact (BR-nudge-frequency).
-  - 7a2. The system informs the instructor that the student has already been nudged for that artifact that calendar day.
+- **7a. The selected student has already received a manual nudge that calendar day:**
+  - 7a1. The system does not send another manual nudge to the student (BR-nudge-frequency).
+  - 7a2. The system informs the instructor that the student has already been nudged that calendar day.
   - 7a3. The scenario continues at step 7 for any remaining selected students.
 
 - **7b. The mail server rejects a selected student's email address:**

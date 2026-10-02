@@ -39,7 +39,7 @@ These business rules apply across Project Pulse. The course-administration rules
 
 # **Weekly Activity Report and Peer Evaluation**
 
-- **BR-nudge-frequency:** A student may receive at most one manual nudge per missing artifact per calendar day.
+- **BR-nudge-frequency:** A student may receive at most one manual nudge per calendar day. A manual nudge identifies all applicable artifacts the student is currently missing.
 
 - **BR-active-weeks:** A student may submit a peer evaluation only for a week that is one of her course section's active weeks; combined with the previous-week rule (BR-evaluation-submission-window), each active week is evaluated during the *following* calendar week — so the first active week is evaluated in the second active week, and the last active week is evaluated in the week after the active window closes (which need not itself be active). The gate is on the evaluated week being active, not on the date of submission. A weekly activity report, by contrast, may be submitted regardless of the active-weeks window. A course section's active weeks are configured per section by its course admin (BR-section-admin-only, UC-SEC-setup-active-weeks).
     - *Active-weeks guidance (instructor reference, not enforced by the system): fall sections usually run weeks 5 through 15 of the semester (winter holidays inactive) and spring sections weeks 1 through 15. The enforced window is whatever the course admin configures per section.*
